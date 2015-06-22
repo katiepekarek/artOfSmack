@@ -1,0 +1,80 @@
+.tweet_row {
+  width: 100%;
+}
+
+.tweet_row td {
+  padding-right: 20px;
+}
+
+.number_of_times span {
+  display: block;
+  width: 60px;
+  font-size: 40px;
+  background-color: black;
+  border-radius: 100%;
+  color: white;
+  text-align: center;
+  line-height: 60px;
+}
+
+.expander {
+  cursor: pointer;
+  font-size: 50px;
+}
+
+.reset_table_width {
+  width: auto;
+}
+
+
+
+.new-button {
+   border-top: 1px solid #214a63;
+   background: #195278;
+   background: -webkit-gradient(linear, left top, left bottom, from(#071a26), to(#195278));
+   background: -webkit-linear-gradient(top, #071a26, #195278);
+   background: -moz-linear-gradient(top, #071a26, #195278);
+   background: -ms-linear-gradient(top, #071a26, #195278);
+   background: -o-linear-gradient(top, #071a26, #195278);
+   padding: 12.5px 25px;
+   -webkit-border-radius: 18px;
+   -moz-border-radius: 18px;
+   border-radius: 18px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: white;
+   font-size: 17px;
+   font-family: Helvetica, Arial, Sans-Serif;
+   text-decoration: none;
+   vertical-align: middle;
+   }
+.new-button:hover {
+   border-top-color: #28597a;
+   background: #28597a;
+   color: #ccc;
+   }
+.new-button:active {
+   border-top-color: #1b435e;
+   background: #1b435e;
+   }
+
+.title {
+  font-size: 60px;
+  line-height: 40px;
+  font-family: Impact, Charcoal, sans-serif;
+}
+
+#about-div {
+  position: fixed;
+  bottom: -200px;
+}
+
+#about-description{
+  text-align: justify;
+  font-size: 22px;
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}

@@ -3,31 +3,58 @@
   <%= link_to "Sign Out", signout_path %>
   <%= link_to "Send a New Tweet", new_tweet_path %>
 
-+<div class="container">
-+  <div class="page-header row">
-+    <h1 class="font-personal col-md-6 title"><%= current_user[:name] %> <small>@<%= current_user[:nickname] %></small></h1>
-    <a class="btn btn-danger pull-right" href="/signout">Sign Out</a>
-  </div>
+  <%= form_for @tweet, html: {class: 'form-horizontal'} do |f| %>
 
-  <div class="container tweet-container">
-    <ul id="tweet-list" class="tweet-list">
-      <% @tweets.each do |tweet| %>
-        <div class="tweet media" style="margin: 10px 0 10px">
-  <a class="pull-left" href="https://twitter.com/<%= tweet.user_nickname %>">
-    <img class="media-object img-circle" src="<%= tweet.user_image %>">
-  </a>
-  <div class="media-body">
-    <p class="text-tweet" style="margin:1px 0 4px;"><%=h tweet.text %></p>
-
-    <div class="text-gray text-timeago" data-timestamp="<%= tweet.created_at.to_s.gsub(/UTC/, 'Z') %>"></div>
-
-  </div>
-</div>
+    <div class= "col-sm-offset-2 col-sm-9">
+      <% if @tweet.errors.any? %>
+        <div class= 'form-group'>
+          <div class= 'alert alert-danger'>
+            <div id="error_explanation">
+              <h2><%= pluralize(@tweet.errors.count, "error") %> prohibited this post from being saved:</h2>
+              <ul>
+                <% @tweet.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
       <% end %>
-    </ul>
-  </div>
+    </div>
 
-</div>
+    <div class= 'form-group'>
+      <%= f.label :content, class: 'col-sm-2 control-label' %>
+      <div class= 'col-sm-6'>
+        <%= f.text_area :content, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class= 'form-group'>
+      <div class= 'col-sm-offset-2 col-sm-10'>
+        <%= f.submit "Send Tweet", class: 'btn btn-primary' %>
+      </div>
+    </div>
+
+  <%end%>
+
+  <!-- <table id="tweet_table" width="800* 400 px">
+<% @timeline_posts.each do |tweet_obj| %>
+  <tr class="tweet_row">
+    <td width="400px" height="400px" class="individual_tweet tweet_num_<%= i %>">
+    <div>
+      <%= tweet_obj %>
+    </div>
+    </td>
+    <td class="arrow expander">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<% if @timeline_posts == [] %>
+<h2>Sorry, I didn't find any oponents to Smack talk</h2>
+<% end %> -->
 
 <% else %>
   <%= link_to "Sign in with Twitter", "/auth/twitter" %>
