@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150622023634) do
+ActiveRecord::Schema.define(version: 20150623185225) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "tweets", force: :cascade do |t|
     t.string   "tweet_id"
@@ -21,6 +24,20 @@ ActiveRecord::Schema.define(version: 20150622023634) do
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
   end
+
+  create_table "twitter_events", force: :cascade do |t|
+    t.string   "type"
+    t.integer  "user_id"
+    t.string   "uid"
+    t.string   "text"
+    t.string   "username"
+    t.string   "handle"
+    t.string   "hashtags"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "twitter_events", ["user_id"], name: "index_twitter_events_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "provider"
@@ -32,6 +49,10 @@ ActiveRecord::Schema.define(version: 20150622023634) do
     t.string   "oauth_secret"
     t.string   "nickname"
     t.string   "image"
+    t.integer  "bleacher_id"
+    t.string   "email"
+    t.text     "teams"
   end
 
+  add_foreign_key "twitter_events", "users"
 end

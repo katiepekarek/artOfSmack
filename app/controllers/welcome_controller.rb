@@ -1,8 +1,8 @@
 class WelcomeController<ApplicationController
   def index
-    @tweets = Tweet.all
-    @tweet = Tweet.new
-    #@timeline_posts = (Timeline.new).make_tweets
+    @user = BleacherApi::Authenticate.login('thompson.kpk@gmail.com', 'password')
+    if current_user
+      @recent_timeline = current_user.twitter_events
+    end
   end
-
 end

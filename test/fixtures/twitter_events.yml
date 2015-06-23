@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  user_id: 
+  uid: MyString
+  text: MyString
+  username: MyString
+  handle: MyString
+  hashtags: 
+
+two:
+  type: 
+  user_id: 
+  uid: MyString
+  text: MyString
+  username: MyString
+  handle: MyString
+  hashtags: 

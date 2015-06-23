@@ -1,60 +1,10 @@
 <% if current_user %>
   Welcome <%= current_user.name %>!
   <%= link_to "Sign Out", signout_path %>
-  <%= link_to "Send a New Tweet", new_tweet_path %>
 
-  <%= form_for @tweet, html: {class: 'form-horizontal'} do |f| %>
 
-    <div class= "col-sm-offset-2 col-sm-9">
-      <% if @tweet.errors.any? %>
-        <div class= 'form-group'>
-          <div class= 'alert alert-danger'>
-            <div id="error_explanation">
-              <h2><%= pluralize(@tweet.errors.count, "error") %> prohibited this post from being saved:</h2>
-              <ul>
-                <% @tweet.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-                <% end %>
-              </ul>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
+  <%= render @recent_timeline %>
 
-    <div class= 'form-group'>
-      <%= f.label :content, class: 'col-sm-2 control-label' %>
-      <div class= 'col-sm-6'>
-        <%= f.text_area :content, class: 'form-control' %>
-      </div>
-    </div>
-
-    <div class= 'form-group'>
-      <div class= 'col-sm-offset-2 col-sm-10'>
-        <%= f.submit "Send Tweet", class: 'btn btn-primary' %>
-      </div>
-    </div>
-
-  <%end%>
-
-  <!-- <table id="tweet_table" width="800* 400 px">
-<% @timeline_posts.each do |tweet_obj| %>
-  <tr class="tweet_row">
-    <td width="400px" height="400px" class="individual_tweet tweet_num_<%= i %>">
-    <div>
-      <%= tweet_obj %>
-    </div>
-    </td>
-    <td class="arrow expander">
-      <span class="glyphicon glyphicon-chevron-right"></span>
-    </td>
-  </tr>
-<% end %>
-</table>
-
-<% if @timeline_posts == [] %>
-<h2>Sorry, I didn't find any oponents to Smack talk</h2>
-<% end %> -->
 
 <% else %>
   <%= link_to "Sign in with Twitter", "/auth/twitter" %>

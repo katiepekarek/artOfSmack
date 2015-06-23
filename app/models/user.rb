@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :tweets
+  has_many :twitter_events
 
   def self.find_or_create_with_omniauth(auth)
     user = where(provider: auth["provider"], uid: auth["uid"]).first_or_create
@@ -15,12 +16,32 @@ class User < ActiveRecord::Base
     user
   end
 
-  def twitter
-    @client = Twitter::REST::Client.new do |config|
-      config.consumer_key        = Rails.application.secrets.twitter_api_key
-      config.consumer_secret     = Rails.application.secrets.twitter_api_secret
-      config.access_token        = oauth_token
-      config.access_token_secret = oauth_secret
+  def self.find_or_create_with_bleacher_report(bleacher_response)
+    user = where(bleacher_id: bleacher_response["id"]).first_or_create
+    user.update(
+      bleacher_id: bleacher_response["id"],
+      teams: bleacher_response["email"],
+      teams: bleacher_response["api"]["teams"],
+    )
+    user
+  end
+
+  serialize :teams
+
+  def timeline
+    @timeline = if twitter_events.none?
+      t = Twitter.new([oauth_token, oauth_secret])
+      cache_recent_timeline(events)
+     else
+      twitter_events
+     end
+  end
+
+  def cache_recent_timeline(events)
+    events.each do |event|
+      twitter_events.create(type: event.class_name,
+                      text: event.text, username: event.user.username, handle: event.user.handle, hashtags: event.hashtags.map(&:text).join(","))
     end
   end
+
 end
