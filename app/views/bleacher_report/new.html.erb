@@ -2,10 +2,13 @@
 <body class="sign-in">
 
 <div class="highlight-bar" style="width: 100%;"></div>
-<h1>Get In The Game Without Putting On Your Shoes</h1>
+  <div class= 'col-md-offset-1'>
+    <h1>Get In The Game Without Putting On Your Shoes</h1>
+    <h2>Art of Smack uses Bleacher Report to filter your Twitter Timeline so you can engage in the time honored sports tradition of talking smack with your friends</h2>
+  </div>
     <%= form_tag signin_path do %>
       <div class= 'row'>
-        <div class= 'col-sm-6 col-md-offset-3'>
+        <div class= 'col-sm-4 col-md-offset-1'>
           <div class= 'well'>
             <div class= 'page-header'>
               <h3>Sign in with Bleacher Report</h3>
@@ -17,12 +20,12 @@
 
             <div class= 'form-group'>
               <%= label_tag :email, 'Email', class: 'control-label' %>
-              <%= email_field_tag :email, '', class: 'form-control' %>
+              <input type="email" name="email" id="email" value="" class="form-control" placeholder="Enter Bleacher Report Email">
             </div>
 
             <div class= 'form-group'>
               <%= label_tag :password, 'Password', class: 'control-label' %>
-              <%= password_field_tag :password, '', class: 'form-control' %>
+              <input type="password" name="password" id="password" value="" class="form-control" placeholder="Enter Bleacher Report Password">
             </div>
 
             <div>

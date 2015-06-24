@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
   root 'welcome#index'
-  get '/sign-in' => 'bleacher_report_sessions#new', as: :signin
-  post '/sign-in' => 'bleacher_report_sessions#create'
+  get '/sign-in' => 'bleacher_report#new', as: :signin
+  post '/sign-in' => 'bleacher_report#create'
   get "/auth/:provider/callback" => "twitter_oauth#create"
   get "/signout" => "sessions#destroy", :as => :signout
 

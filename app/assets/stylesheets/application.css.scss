@@ -17,11 +17,61 @@
  @import "bootstrap";
 
  body {
-   padding-top: 70px;
+   padding-top: 30px;
    padding-bottom: 30px;
    background-color: #A4D3E4;
  }
 
+ .sign-in {
+  background-image: url("Sneakers on a Pier3.jpg");
+  background-color: #cccccc;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 60px;
+  padding-bottom: 70px
+ }
+
+ .highlight-bar {
+   position: fixed;
+   top: 0;
+   left: 0;
+   height: 235px;
+   width: 0;
+   background: #58637B;
+   z-index: -1;
+   padding-bottom: 20px
+ }
+
+ h1 {
+  font-size: 48px;
+  color: white;
+  font-weight: 100;
+
+}
+
+h2 {
+  font-family: times, Times New Roman, times-roman, georgia, serif;
+	font-size: 28px;
+	line-height: 40px;
+	letter-spacing: -2px;
+  color: #white;
+}
+
+h3 {
+ font-size: 24px;
+ color: white;
+ font-weight: bold;
+}
+
+.well {
+  background-color: transparent;
+}
+
+.well.control-label {
+  margin: 5%;
+  font-weight: bold;
+  color: #000000;
+}
  .theme-dropdown .dropdown-menu {
    position: static;
    display: block;

@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   has_many :twitter_events
 
   def self.find_or_create_with_omniauth(auth)
-    user = where(provider: auth["provider"], uid: auth["uid"]).first_or_create
+    user = where(provider: auth["provider"], uid: auth["uid"], name: auth.info.name).first_or_create
     user.update(
       provider: auth.provider,
       uid: auth["uid"],
@@ -20,8 +20,9 @@ class User < ActiveRecord::Base
     user = where(bleacher_id: bleacher_response["id"]).first_or_create
     user.update(
       bleacher_id: bleacher_response["id"],
-      teams: bleacher_response["email"],
-      teams: bleacher_response["api"]["teams"],
+      name: bleacher_response["full_name"],
+      email: bleacher_response["email"],
+      teams: bleacher_response["api"]["teams"]
     )
     user
   end

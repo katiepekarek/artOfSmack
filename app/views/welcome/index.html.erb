@@ -2,6 +2,17 @@
   Welcome <%= current_user.name %>!
   <%= link_to "Sign Out", signout_path %>
 
+  <div id="about-description">
+    If you make friends by
+  </div>
+
+  <div id="parrot">
+    <%= link_to('auth/twitter') do %>
+      <%= image_tag ("squawker.png") %>
+      <div id="get_squawks">Perfect my smack talk</div>
+    <% end %>
+  </div>
+
 
   <%= render @recent_timeline %>
 

@@ -1,3 +1,2 @@
-<%= tweet.text %>
-<br>
-<%= tweet.hashtags%>
+html = "<blockquote class=\"twitter-tweet\" align=\"left\" lang=\"en\"><p>"
+html = html + "</p>&mdash; #{tweet_obj.user_name} (@#{tweet_obj.user_handle}) <a href=\"#{tweet.text}\">#{tweet_obj.created_at.strftime("%m/%d/%y")}</a></blockquote>"
