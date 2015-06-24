@@ -12,10 +12,10 @@ class ApplicationController < ActionController::Base
   end
 
   def is_authenticated?
-      if current_user and !current_user[:id].nil? and !session[:id].nil? and current_user[:id] == session[:id]
-        true
-      else
-        false
-      end
+    if current_user and !current_user[:id].nil? and !session[:id].nil? and current_user[:id] == session[:id]
+      true
+    else
+      false
     end
+  end
 end

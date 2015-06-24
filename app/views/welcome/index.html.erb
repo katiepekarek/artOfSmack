@@ -2,19 +2,13 @@
   Welcome <%= current_user.name %>!
   <%= link_to "Sign Out", signout_path %>
 
-  <div id="about-description">
-    If you make friends by
-  </div>
-
-  <div id="parrot">
-    <%= link_to('auth/twitter') do %>
-      <%= image_tag ("squawker.png") %>
-      <div id="get_squawks">Perfect my smack talk</div>
-    <% end %>
-  </div>
-
-
+<%= form_for Tweet.new do |f|%>
+  <%= f.text_area :text %>
+  <%= f.submit %>
+<% end %>
+ <% if current_user && current_user.provider == "twitter" %>
   <%= render @recent_timeline %>
+<% end %>
 
 
 <% else %>

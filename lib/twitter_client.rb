@@ -10,8 +10,9 @@ class TwitterClient
 
   def recent_timeline
     client.home_timeline(:count => 149).map do |event|
+      klass = parse_type(event.class)
       event.class.send(:define_method, :class_name) do
-        parse_type(event.class)
+        klass
       end
       event
     end
@@ -21,8 +22,8 @@ private
 
   def client
     @client = Twitter::REST::Client.new do |config|
-      config.consumer_key        = ENV["TWITTER_API_KEY"]
-      config.consumer_secret     = ENV["TWITTER_API_SECRET"]
+      config.consumer_key        = ENV.fetch("TWITTER_API_KEY")
+      config.consumer_secret     = ENV.fetch("TWITTER_API_SECRET")
       config.access_token        = @oauth_token
       config.access_token_secret = @oauth_secret
     end
