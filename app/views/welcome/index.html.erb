@@ -9,8 +9,5 @@
  <% if current_user && current_user.provider == "twitter" %>
   <%= render @recent_timeline %>
 <% end %>
-
-
-<% else %>
-  <%= link_to "Sign in with Twitter", "/auth/twitter" %>
+  
 <% end %>

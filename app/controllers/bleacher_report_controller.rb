@@ -1,22 +1,19 @@
 class BleacherReportController < ApplicationController
-
-  def new
-  end
+  before_action :authenticate_user!
 
   def create
     bleacher_response = BleacherApi::Authenticate.login(params['email'], params['password'])
-    user = User.find_or_create_with_bleacher_report(bleacher_response)
+    current_user.update_user_with_bleacher_report(bleacher_response)
+    #user = User.find_or_create_with_bleacher_report(bleacher_response)
     if bleacher_response
-      session[:user_id] = user.id
-      redirect_to root_url, :notice => "Signed in with Bleacher Report!"
+      redirect_to user_omniauth_authorize_path(:twitter), :notice => "Signed in with Bleacher Report!"
     else
       redirect_to sign_in_path, :notice => "Please Check to make sure your Bleacher Report email/password are correct."
     end
   end
 
-  def destroy
-    session[:user_id] = nil
-    redirect_to root_url, :notice => "Signed out!"
-  end
+
+
+
 
 end

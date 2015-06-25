@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  devise_for :users,  controllers: { registrations: "registrations" },
+                      controllers: {omniauth_callbacks: "omniauth_callbacks"}
   root 'welcome#index'
   get '/sign-in' => 'bleacher_report#new', as: :signin
   post '/sign-in' => 'bleacher_report#create'
