@@ -1,13 +1,22 @@
-<% if current_user %>
-  Welcome <%= current_user.name %>!
-  <%= link_to "Sign Out", signout_path %>
 
-<%= form_for Tweet.new do |f|%>
-  <%= f.text_area :text %>
-  <%= f.submit %>
+
+
+  <%#= current_user.bleacher_report_id %>
+<%#= unless current_user.signed_in_to_bleacher_report? %>
+"Oh no please sign in to Bleacher Report"
+  <%#= button_to "Sign In With Bleacher Report", new_bleacher_report_path %>
+<%# end %>
+
+<%= unless current_user.signed_in_to_twitter? %>
+  "Oh no please sign in to Bleacher Report"
+  <%= button_to "Sign In With Twitter to get in the game", twitter_oauth_path %>
 <% end %>
- <% if current_user && current_user.provider == "twitter" %>
-  <%= render @recent_timeline %>
-<% end %>
-  
-<% end %>
+
+    <%= form_for Tweet.new do |f|%>
+      <%= f.text_area :text %>
+      <%= f.submit %>
+    <% end %>
+
+     <% if current_user && current_user.provider == "twitter" %>
+      <%= render @recent_timeline %>
+    <% end %>
