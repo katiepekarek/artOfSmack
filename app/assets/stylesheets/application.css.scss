@@ -19,10 +19,9 @@
  body {
    padding-top: 30px;
    padding-bottom: 30px;
-   background-color: #A4D3E4;
  }
 
- .sign-in {
+ body .sign-in {
   background-image: url("Sneakers on a Pier3.jpg");
   background-color: #cccccc;
   background-size: cover;
@@ -35,7 +34,7 @@
    position: fixed;
    top: 0;
    left: 0;
-   height: 235px;
+   height: 210px;
    width: 0;
    background: #58637B;
    z-index: -1;
@@ -58,9 +57,12 @@ h2 {
 }
 
 h3 {
- font-size: 24px;
- color: white;
- font-weight: bold;
+  font-family: times, Times New Roman, times-roman, georgia, serif;
+  font-size: 28px;
+  line-height: 40px;
+  letter-spacing: -2px;
+  font-color: #white;
+
 }
 
 .well {

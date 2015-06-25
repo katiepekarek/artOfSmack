@@ -1,6 +1,8 @@
 <% if current_user %>
   Welcome <%= current_user.name %>!
   <%= link_to "Sign Out", signout_path %>
+  <%= link_to "Sign in with Twitter", "/auth/twitter" %>
+<% end %>
 
 <%= form_for Tweet.new do |f|%>
   <%= f.text_area :text %>
@@ -8,9 +10,4 @@
 <% end %>
  <% if current_user && current_user.provider == "twitter" %>
   <%= render @recent_timeline %>
-<% end %>
-
-
-<% else %>
-  <%= link_to "Sign in with Twitter", "/auth/twitter" %>
 <% end %>

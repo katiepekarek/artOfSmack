@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   end
 
   def self.find_or_create_with_omniauth(auth)
-    user = where(provider: auth["provider"], uid: auth["uid"]).find_or_create
+    user = find_or_create_by(provider: auth["provider"], uid: auth["uid"])
     user.update(
       provider: auth.provider,
       uid: auth["uid"],
