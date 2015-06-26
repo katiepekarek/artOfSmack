@@ -1,8 +1,10 @@
-<div class= 'row'>
-  <div class= 'col-sm-5 col-md-offset-1'>
-    <div class= 'well'>
-      <blockquote class=\"twitter-tweet\" align=\"left\" lang=\"en\"><p>
-      </p> <%= tweet.username %> <%= "(#{tweet.handle})" %> <%= tweet.text %> <%= tweet.hashtags%> <%= tweet.created_at.strftime("%m/%d/%y") %> </blockquote>
+<% if tweet.text.include?("Rockies") %>
+  <div class= 'row'>
+    <div class= 'col-sm-4'>
+      <div class= 'well', id= "tweet_well">
+        <blockquote class=\"twitter-tweet\" align=\"left\" lang=\"en\"><p>
+        </p> <%= tweet.username %> <%= "(#{tweet.handle})" %> <%= tweet.text %> <%= tweet.hashtags%> <%= tweet.created_at.strftime("%m/%d/%y") %> </blockquote>
+      </div>
     </div>
   </div>
-</div>
+<% end %>

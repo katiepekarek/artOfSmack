@@ -1,13 +1,46 @@
-<% if current_user %>
-  Welcome <%= current_user.name %>!
-  <%= link_to "Sign Out", signout_path %>
-  <%= link_to "Sign in with Twitter", "/auth/twitter" %>
-<% end %>
+<body id="smack-talk">
+  <div class="highlight-bar" style="width: 100%;"></div>
+  <nav class='navbar navbar-fixed-top'>
+    <div class='container'>
+      <a class='navbar-brand' href='/'>ArtOfSmack</a>
+      <div class= 'pull-right'>
+        <% if current_user %>
+          <%= link_to "Sign Out #{current_user.name}", signout_path, class: 'navbar-text' %>
+        <% end %>
+      </div>
+    </div>
+  </nav>
 
-<%= form_for Tweet.new do |f|%>
-  <%= f.text_area :text %>
-  <%= f.submit %>
-<% end %>
- <% if current_user && current_user.provider == "twitter" %>
-  <%= render @recent_timeline %>
-<% end %>
+  <div >
+    <h2>Get In The Game....</h2>
+  <div>
+    <% unless current_user && current_user.provider == "twitter" %>
+    <div >
+      <h3>Sign Into Twitter to see what people are saying about your team.</h3>
+      <a class="btn btn-default" href="/auth/twitter" role="button">Sign in with Twitter</a>
+    </div>
+    <% end %>
+
+
+   <% if current_user && current_user.provider == "twitter" %>
+   <p>
+     <div class= "row">
+       <div >
+         <div class= "col-md-9">
+           <%= form_for Tweet.new do |f|%>
+             <%= f.text_area :text, class: "form-control" %>
+           </p>
+             <%= f.submit "Send Smack", class: 'btn btn-default' %>
+           <% end %>
+         </div>
+       </div>
+     </div>
+
+</br>
+</br>
+  <div class= "row">
+    <%= render @recent_timeline %>
+  </div>
+
+  <% end %>
+</body>

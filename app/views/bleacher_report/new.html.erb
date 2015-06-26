@@ -1,5 +1,5 @@
 
-<body class="sign-in">
+<body id="sign-in">
 
 <div class="highlight-bar" style="width: 100%;"></div>
   <div class= 'col-md-offset-1'>
@@ -19,12 +19,10 @@
             <% end %>
 
             <div class= 'form-group'>
-              <%= label_tag :email, 'Email', class: 'control-label' %>
               <input type="email" name="email" id="email" value="" class="form-control" placeholder="Enter Bleacher Report Email">
             </div>
 
             <div class= 'form-group'>
-              <%= label_tag :password, 'Password', class: 'control-label' %>
               <input type="password" name="password" id="password" value="" class="form-control" placeholder="Enter Bleacher Report Password">
             </div>
 
@@ -32,6 +30,7 @@
               <%= submit_tag "Sign in", class: 'btn btn-default' %>
             </div>
           </div>
+          <a class="btn btn-default" href="http://bleacherreport.com/api/authenticate/signup?redirect_url=http://localhost:3000/sign-in" role="button">Don't Have a BR Team Stream?    Sign up here.</a>
         </div>
       </div>
     <% end %>

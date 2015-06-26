@@ -16,19 +16,15 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
- body {
-   padding-top: 30px;
-   padding-bottom: 30px;
- }
-
- body .sign-in {
-  background-image: url("Sneakers on a Pier3.jpg");
-  background-color: #cccccc;
-  background-size: cover;
-  background-repeat: no-repeat;
-  padding-top: 60px;
-  padding-bottom: 70px
- }
+body {
+  padding-top: 20px;
+  padding-bottom: 30px;
+  background: url("Sneakers on a Pier3.jpg") no-repeat center center fixed;
+ -webkit-background-size: cover;
+ -moz-background-size: cover;
+ -o-background-size: cover;
+ background-size: cover;
+}
 
  .highlight-bar {
    position: fixed;
@@ -60,20 +56,25 @@ h3 {
   font-family: times, Times New Roman, times-roman, georgia, serif;
   font-size: 28px;
   line-height: 40px;
-  letter-spacing: -2px;
+  letter-spacing: -1px;
   font-color: #white;
 
+}
+
+.navbar {
+ font-size: 20px;
+ color: white;
+ font-weight: 100;
+
+}
+#tweet_well {
+  background-color: white;
 }
 
 .well {
   background-color: transparent;
 }
 
-.well.control-label {
-  margin: 5%;
-  font-weight: bold;
-  color: #000000;
-}
  .theme-dropdown .dropdown-menu {
    position: static;
    display: block;
@@ -84,14 +85,10 @@ h3 {
    margin: 5px 0;
  }
 
- #footer {
-   position: fixed;
-   bottom: 0px;
-   right: 0px;
-   // height: 60px;
-   background-color: #ccc;
-   width: 445px;
-   border-top-left-radius:26px;
-   padding-left: 14px;
-   padding-top: 10px;
- }
+#sign-in {
+   background: url("Sneakers on a Pier3.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  }
