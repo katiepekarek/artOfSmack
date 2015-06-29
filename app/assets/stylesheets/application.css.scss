@@ -19,7 +19,7 @@
 body {
   padding-top: 20px;
   padding-bottom: 30px;
-  background: url("Sneakers on a Pier3.jpg") no-repeat center center fixed;
+  background: asset-data-url("Sneakers on a Pier3.jpg") no-repeat center center fixed;
  -webkit-background-size: cover;
  -moz-background-size: cover;
  -o-background-size: cover;
@@ -86,7 +86,7 @@ h3 {
  }
 
 #sign-in {
-   background: url("Sneakers on a Pier3.jpg") no-repeat center center fixed;
+   background: asset-data-url("Sneakers on a Pier3.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
